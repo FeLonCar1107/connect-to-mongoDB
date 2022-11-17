@@ -7,6 +7,7 @@ const app = express();
 const { API_VERSION } = require("./config");
 
 const userRoutes = require("./src/routes/userRoutes")
+const moviesRoutes = require("./src/routes/movieRoutes")
 
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
@@ -14,6 +15,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use(`/api/${API_VERSION}`, userRoutes);
+app.use(`/api/${API_VERSION}`, moviesRoutes);
 
 /* Configuración de los header HTTP */
 module.exports = app;
